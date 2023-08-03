@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Symfony\Contracts\Service\Attribute\Required;
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
     public function index()
     {
@@ -22,7 +22,8 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|max:255'
+            'name' => 'required|max:255',
+            'description' => 'required|max:255'
         ]);
 
         Category::create($data);
