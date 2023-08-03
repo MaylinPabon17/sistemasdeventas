@@ -5,42 +5,41 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 
 
-
 Route::get('/categories', [CategoryController::class, 'index'])
     ->name('categories.index');
 
 Route::get('/categories/create', [CategoryController::class, 'create'])
     ->name('categories.create');
 
-Route::get('/categories/create', [CategoryController::class, 'store'])
+Route::post('/categories/create', [CategoryController::class, 'store'])
     ->name('categories.create');
 
 Route::get('/categories/edit/{category}', [CategoryController::class, 'edit'])
     ->name('categories.edit');
 
-Route::get('/categories/edit/{category]', [CategoryController::class, 'update'])
+Route::post('/categories/edit/{category}', [CategoryController::class, 'update'])
     ->name('categories.edit');
 
-Route::get('/categories/delete/{category}', [CategoryController::class, 'destroy'])
+Route::post('/categories/delete/{category}', [CategoryController::class, 'destroy'])
     ->name('categories.delete');
 
 
-Route::get('/products', [\App\Models\ProductController::class, 'index'])
+Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index');
 
-Route::get('/products/create', [\App\Models\ProductController::class, 'create'])
+Route::get('/products/create', [ProductController::class, 'create'])
     ->name('products.create');
 
-Route::get('/products', [\App\Models\ProductController::class, 'store'])
+Route::post('/products/create', [ProductController::class, 'store'])
     ->name('products.create');
 
-Route::get('/products/edit/{product}', [\App\Models\ProductController::class, 'edit'])
+Route::get('/products/edit/{product}', [ProductController::class, 'edit'])
     ->name('products.edit');
 
-Route::get('/products/edit/{product}', [\App\Models\ProductController::class, 'update'])
+Route::post('/products/edit/{product}', [ProductController::class, 'update'])
     ->name('products.edit');
 
-Route::get('/products/delete/{product}', [\App\Models\ProductController::class, 'destroy'])
+Route::post('/products/delete/{product}', [ProductController::class, 'destroy'])
     ->name('products.delete');
 
 

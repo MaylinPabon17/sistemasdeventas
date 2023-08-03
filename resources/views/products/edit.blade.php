@@ -8,7 +8,7 @@
     <div style="color: green;">{{ session('massage') }}</div>
 @endif
 
-<form action="{{ route('products.edit', $category) }}" method="post">
+<form action="{{ route('products.edit', $product) }}" method="post">
     @csrf
     <div style="margin-bottom: 1em;">
         <label for="name">Name</label>
@@ -32,13 +32,13 @@
             <option value="">Select</option>
             @foreach($categories as $category)
                 <option
-                    @if($category->id===(int)old('$category_id'))
+                    @if($category->id===(int)$product->category_id)
                         selected
                     @endif
                     value="{{ $category->id }}">{{ $category->name}}</option>
             @endforeach
         </select>
-        @error('$category_id')
+        @error('category_id')
         <div style="color: red;">{{ $message }}</div>
         @enderror
     </div>

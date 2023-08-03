@@ -9,7 +9,7 @@
     <thead>
     <tr>
         <td>No.</td>
-        <td>Name.</td>
+        <td>Name</td>
         <td>Description</td>
         <td>Timestamp</td>
         <td>Action</td>
@@ -18,14 +18,14 @@
     <tbody>
     @forelse($categories as $key => $category)
         <tr>
-            <td>{{ $categories->firsItem() + $key }}.</td>
-            <td>{{ $categories->name}}</td>
-            <td>{{ $categories->description}}</td>
-            <td>{{ $categories->create_at->format('F d, Y')}}</td>
+            <td>{{ $categories->firstItem() + $key }}.</td>
+            <td>{{ $category->name}}</td>
+            <td>{{ $category->description}}</td>
+            <td>{{ $category->created_at->format('F d, Y') }}</td>
             <td>
-                <a href="{{ route('$categories.edit', $category) }}">Edit</a>
+                <a href="{{ route('categories.edit', $category) }}">Edit</a>
 
-                <form action="{{ route('$categories.delete', $category) }}" method="post">
+                <form action="{{ route('categories.delete', $category) }}" method="post">
                     @csrf
                     <button type="submit">Delete</button>
                 </form>

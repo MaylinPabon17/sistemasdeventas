@@ -1,5 +1,5 @@
 <div><a href="/">Home</a></div>
-<a href="{{ route('products.create') }}">New Productos</a>
+<a href="{{ route('products.create') }}">New Product</a>
 
 @if(session('massage'))
     <div style="color: green;">{{ session('message') }}</div>
@@ -9,7 +9,7 @@
     <thead>
     <tr>
         <td>No.</td>
-        <td>Name.</td>
+        <td>Name</td>
         <td>Description</td>
         <td>Timestamp</td>
         <td>Action</td>
@@ -18,16 +18,16 @@
     <tbody>
     @forelse($products as $key => $product)
         <tr>
-            <td>{{ $products->firsItem() + $key }}.</td>
-            <td>{{ $products->name}}</td>
-            <td>{{ $products->price}}</td>
+            <td>{{ $products->firstItem() + $key }}.</td>
+            <td>{{ $product->name}}</td>
+            <td>{{ $product->price}}</td>
             <td>
-                {{ $products->category->name}}
+                {{ $product->category->name}}
             </td>
             <td>
-                <a href="{{ route('$products.edit', $category) }}">Edit</a>
+                <a href="{{ route('products.edit', $product) }}">Edit</a>
 
-                <form action="{{ route('$products.delete', $category) }}" method="post">
+                <form action="{{ route('products.delete', $product) }}" method="post">
                     @csrf
                     <button type="submit">Delete</button>
                 </form>
