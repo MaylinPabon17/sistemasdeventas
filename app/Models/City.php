@@ -9,11 +9,11 @@ class City extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'department_id'];
 
     public function department(){
-        return $this->hasMany(Department::class);
+        return $this->belongsTo(Department::class);
     }
 }
 
-}
+

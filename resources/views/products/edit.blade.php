@@ -5,7 +5,7 @@
 <h1>Edit Product</h1>
 
 @if(session('massage'))
-    <div style="color: green;">{{ session('massage') }}</div>
+    <div style="color: green;">{{ session('message') }}</div>
 @endif
 
 <form action="{{ route('products.edit', $product) }}" method="post">

@@ -17,10 +17,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::orderBy('name')->get();
-        return view('products.create', compact('categories'));
-
-    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
      public function store(Request $request)
     {
         $data = $request->validate([
@@ -45,7 +42,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'name' => 'required|max:255',
             'price' => 'required|regex:/^\d{1,13}(\.\d})?$/|gt:0',
-            'category_id' => 'required|integer',
+            'category_id' => 'required|integer'
         ]);
          $product->update($data);
 
