@@ -29,9 +29,10 @@
         <label for="category_id">Category</label>
         <select name="category_id" id="category_id">
             <option value="">Select</option>
+
             @foreach($categories as $category)
                 <option
-                     @if($category->id===(int)old('category_id'))
+                     @if($category->id=== (int)old('category_id'))
                          selected
                      @endif
                         value="{{ $category->id }}">{{ $category->name}}</option>

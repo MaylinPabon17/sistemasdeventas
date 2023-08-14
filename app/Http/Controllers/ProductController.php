@@ -17,7 +17,10 @@ class ProductController extends Controller
 
     public function create()
     {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
+        $categories = Category::orderBy('name')->get();
+        return view('products.create', compact('categories'));
+    }
+
      public function store(Request $request)
     {
         $data = $request->validate([
@@ -27,7 +30,7 @@ class ProductController extends Controller
         ]);
 
         Product:: create($data);
-        return back()->with('massage', 'Product created.');
+        return back()->with('message', 'Product created.');
     }
 
     public function edit(Product $product)
@@ -53,7 +56,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return back()->with('massage', 'Product deleted.');
+        return back()->with('message', 'Product deleted.');
     }
 }
 

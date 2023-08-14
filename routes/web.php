@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\EmployeeController;
 
 //categories
 Route::get('/categories', [CategoryController::class, 'index'])
@@ -64,17 +65,37 @@ Route::post('/departments/delete/{department}', [DepartmentController::class, 'd
     ->name('departments.delete');
 
 //cities
-Route::get('/cities', [CityController::class, 'index'])->name('cities.index');
+Route::get('/cities', [CityController::class, 'index'])
+    ->name('cities.index');
 
-Route::get('/cities/create', [CityController::class, 'create'])->name('cities.create');
+Route::get('/cities/create', [CityController::class, 'create'])
+    ->name('cities.create');
 
-Route::post('/cities/create', [CityController::class, 'store'])->name('cities.create');
+Route::post('/cities/create', [CityController::class, 'store'])
+    ->name('cities.create');
 
-Route::get('/cities/edit/{city}', [CityController::class, 'edit'])->name('cities.edit');
+Route::get('/cities/edit/{city}', [CityController::class, 'edit'])
+    ->name('cities.edit');
 
-Route::post('/cities/edit/{city}', [CityController::class, 'update'])->name('cities.edit');
+Route::post('/cities/edit/{city}', [CityController::class, 'update'])
+    ->name('cities.edit');
 
-Route::post('/cities/delete/{city}', [CityController::class, 'destroy'])->name('cities.delete');
+Route::post('/cities/delete/{city}', [CityController::class, 'destroy'])
+    ->name('cities.delete');
+
+//employees
+Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
+
+Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
+
+Route::post('/employees/create', [EmployeeController::class, 'store'])->name('employees.create');
+
+Route::get('/employees/edit/{employee}', [EmployeeController::class, 'edit'])->name('employees.edit');
+
+Route::post('/employees/edit/{employee}', [EmployeeController::class, 'update'])->name('employees.edit');
+
+Route::post('/employees/delete/{employee}', [EmployeeController::class, 'destroy'])->name('employees.delete');
+
 
 
 
