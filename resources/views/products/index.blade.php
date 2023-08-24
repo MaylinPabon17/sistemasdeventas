@@ -1,7 +1,7 @@
 <div><a href="/">Home</a></div>
 <a href="{{ route('products.create') }}">New Product</a>
 
-@if(session('massage'))
+@if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
@@ -24,6 +24,7 @@
             <td>
                 {{ $product->category->name}}
             </td>
+            <td>{{ $product->created_at->format('F d, Y') }}</td>
             <td>
                 <a href="{{ route('products.edit', $product) }}">Edit</a>
 

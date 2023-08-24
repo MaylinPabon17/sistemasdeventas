@@ -4,7 +4,7 @@
 
 <h1>Edit Category</h1>
 
-@if(session('massage'))
+@if(session('message'))
     <div style="color: green;">{{ session('massage') }}</div>
 @endif
 

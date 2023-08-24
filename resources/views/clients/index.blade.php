@@ -1,5 +1,7 @@
 <div><a href="/">Home</a></div>
-<a href="{{ route('cities.create') }}">New City</a>
+<a href="{{ route('clients.create') }}">New Client
+
+</a>
 
 @if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
@@ -10,25 +12,30 @@
     <tr>
         <td>No.</td>
         <td>Name</td>
-        <td>Department</td>
+        <td>Lastname</td>
+        <td>Document</td>
+        <td>Phone</td>
         <td>Timestamp</td>
         <td>Action</td>
     </tr>
     </thead>
     <tbody>
-    @forelse($cities as $key => $city)
+    @forelse($clients as $key => $client)
         <tr>
-            <td>{{ $cities->firstItem() + $key }}.</td>
-            <td>{{ $city->name}}</td>
+            <td>{{ $clients->firstItem() + $key }}.</td>
+            <td>{{ $client->name}}</td>
+            <td>{{ $client->lastname}}</td>
+            <td>{{ $client->document}}</td>
+            <td>{{ $client->phone}}</td>
             <td>
-                {{ $city->department->name}}
+                {{ $client->city->name}}
             </td>
-            <td>{{ $city->created_at->format('F d, Y') }}</td>
+            <td>{{ $client->created_at->format('F d, Y') }}</td>
 
             <td>
-                <a href="{{ route('cities.edit', $city) }}">Edit</a>
+                <a href="{{ route('clients.edit', $client) }}">Edit</a>
 
-                <form action="{{ route('cities.delete', $city) }}" method="post">
+                <form action="{{ route('clients.delete', $client) }}" method="post">
                     @csrf
                     <button type="submit">Delete</button>
                 </form>

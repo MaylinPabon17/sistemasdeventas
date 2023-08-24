@@ -1,11 +1,11 @@
 <div><a href="/">Home</a></div>
 <a href="{{ route('departments.create') }}">New Department</a>
 
-@if(session('massage'))
+@if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
-<table cellpadding="10" cellspacing="1" border="1">
+<table class="table" cellpadding="10" cellspacing="1" border="1">
     <thead>
     <tr>
         <td>No.</td>

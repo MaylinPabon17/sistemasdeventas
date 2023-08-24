@@ -6,6 +6,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\BillController;
+
 
 //categories
 Route::get('/categories', [CategoryController::class, 'index'])
@@ -96,11 +100,46 @@ Route::post('/employees/edit/{employee}', [EmployeeController::class, 'update'])
 
 Route::post('/employees/delete/{employee}', [EmployeeController::class, 'destroy'])->name('employees.delete');
 
+//clients
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+
+Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
+
+Route::post('/clients/create', [ClientController::class, 'store'])->name('clients.create');
+
+Route::get('/clients/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
+
+Route::post('/clients/edit/{client}', [ClientController::class, 'update'])->name('clients.edit');
+
+Route::post('/clients/delete/{client}', [ClientController::class, 'destroy'])->name('clients.delete');
 
 
+//providers
+Route::get('/providers', [ProviderController::class, 'index'])->name('providers.index');
+
+Route::get('/providers/create', [ProviderController::class, 'create'])->name('providers.create');
+
+Route::post('/providers/create', [ProviderController::class, 'store'])->name('providers.create');
+
+Route::get('/providers/edit/{provider}', [ProviderController::class, 'edit'])->name('providers.edit');
+
+Route::post('/providers/edit/{provider}', [ProviderController::class, 'update'])->name('providers.edit');
+
+Route::post('/providers/delete/{provider}', [ProviderController::class, 'destroy'])->name('providers.delete');
 
 
+//bills
+Route::get('/bills', [BillController::class, 'index'])->name('bills.index');
 
+Route::get('/bills/create', [BillController::class, 'create'])->name('bills.create');
+
+Route::post('/bills/create', [BillController::class, 'store'])->name('bills.create');
+
+Route::get('/bills/edit/{bill}', [BillController::class, 'edit'])->name('bills.edit');
+
+Route::post('/bills/edit/{bill}', [BillController::class, 'update'])->name('bills.edit');
+
+Route::post('/bills/delete/{bill}', [BillController::class, 'destroy'])->name('bills.delete');
 
 
 

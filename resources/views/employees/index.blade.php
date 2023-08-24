@@ -3,7 +3,7 @@
 
 </a>
 
-@if(session('massage'))
+@if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
@@ -18,6 +18,7 @@
         <td>Email</td>
         <td>Post</td>
         <td>address</td>
+        <td>Timestamp</td>
         <td>Action</td>
     </tr>
     </thead>
@@ -35,6 +36,7 @@
             <td>
                 {{ $employee->city->name}}
             </td>
+            <td>{{ $employee->created_at->format('F d, Y') }}</td>
 
             <td>
                 <a href="{{ route('employees.edit', $employee) }}">Edit</a>

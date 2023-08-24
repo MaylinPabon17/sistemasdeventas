@@ -4,7 +4,7 @@
 
 <h1>Edit Product</h1>
 
-@if(session('massage'))
+@if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
@@ -42,6 +42,7 @@
         <div style="color: red;">{{ $message }}</div>
         @enderror
     </div>
+
     <div>
         <button type="submit">Submit</button>
     </div>

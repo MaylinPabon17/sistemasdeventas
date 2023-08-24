@@ -1,7 +1,7 @@
 <div><a href="/">Home</a></div>
 <a href="{{ route('categories.create') }}">New Category</a>
 
-@if(session('massage'))
+@if(session('message'))
     <div style="color: green;">{{ session('message') }}</div>
 @endif
 
